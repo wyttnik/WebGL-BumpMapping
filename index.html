@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Lab7</title>
+    <script src="webgl.js" type="module" defer></script>
+    <link href="style.css" rel="stylesheet">
+  </head>
+
+  <body>
+      <div class="show-area">
+          <canvas id="test" width="640" height="640"></canvas>
+          <div class="configure-area">
+              <div class="ambient-configure">
+                <p>AmbientColorCoeff: </p>
+                <input type="range" id="myRange" min="0" value="0" max="10" step="1">
+              </div>
+              <p id="attenuation-formula"> Light Attenuation = 1.0/(1.0 + c1*d + c2*d^2) </p>
+              <div class="attenuation-configure">
+                <p>c1: </p>
+                <input type="range" id="c1-range" min="0" value="0" max="0.1" step="0.001">
+                <p>c2: </p>
+                <input type="range" id="c2-range" min="0" value="0" max="0.1" step="0.001">
+              </div>
+              <p id="lights-configure-label"> Lights Configuration:</p>
+              <div class="lights-configure">
+                <div id="light-outer">
+                  <p>Outer light: </p>
+                  <input type="range" id="light-outer-range" min="0" value="0" max="1.0" step="0.1">
+                </div>
+              </div>
+          </div>
+      </div>
+  </body>
+</html>

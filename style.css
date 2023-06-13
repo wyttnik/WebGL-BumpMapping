@@ -1,0 +1,35 @@
+.show-area {
+    display: flex;
+}
+
+.ambient-configure {
+    display: flex;
+}
+
+.attenuation-configure {
+    display: flex;
+}
+
+#attenuation-formula {
+    margin-bottom: 0;
+}
+
+#light-outer {
+    display: flex;
+}
+
+#light-car-left{
+    display: flex;
+}
+
+#light-car-right {
+    display: flex;
+}
+
+#light-street-1 {
+    display: flex;
+}
+
+#light-street-2 {
+    display: flex;
+}
