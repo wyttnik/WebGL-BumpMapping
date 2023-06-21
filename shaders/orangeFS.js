@@ -36,8 +36,8 @@ void main() {
   vec4 yGrad =  bp - up;
 
   vec3 norm = normalize(v_norm);
-  //vec3 normal = vec3(norm.x + v_text.x*xGrad.x, norm.y + v_text.y*yGrad.y, norm.z);
-  vec3 normal = vec3(norm.x + xGrad.x, norm.y + yGrad.y, norm.z);
+  vec3 normal = norm + vec3(v_text.x*xGrad.x, v_text.y*yGrad.y,0.0);
+  //vec3 normal = norm + vec3(xGrad.x, yGrad.y, 0.0);
 
   float d = distance(uLightPosition, v_surfacePos);
   vec3 dirToLight = normalize(uLightPosition - v_surfacePos); // l
