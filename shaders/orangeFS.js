@@ -27,10 +27,10 @@ varying vec3 v_surfacePos;
 void main() { 
   vec4 colTex = texture2D(uSampler0, v_text);
 
-  vec4 rp = texture2D(uSampler0, vec2(v_text.x + 1.0 / uTextSize[0], v_text.y));
-  vec4 lp = texture2D(uSampler0, vec2(v_text.x - 1.0 / uTextSize[0], v_text.y));
-  vec4 up = texture2D(uSampler0, vec2(v_text.x, v_text.y + 1.0 / uTextSize[1]));
-  vec4 bp = texture2D(uSampler0, vec2(v_text.x, v_text.y - 1.0 / uTextSize[1]));
+  vec4 rp = texture2D(uSampler0, v_text + vec2(1.0 / uTextSize[0], 0));
+  vec4 lp = texture2D(uSampler0, v_text - vec2(1.0 / uTextSize[0], 0));
+  vec4 up = texture2D(uSampler0, v_text + vec2(0, 1.0 / uTextSize[1]));
+  vec4 bp = texture2D(uSampler0, v_text - vec2(0, 1.0 / uTextSize[1]));
 
   vec4 xGrad =  lp - rp;
   vec4 yGrad =  bp - up;
@@ -50,8 +50,8 @@ void main() {
 
   vec3 LightWeighting =  uAmbientCoeff * uAmbientLightColor + 
     1.0 / (1.0 + uc1*d + uc2*pow(d,2.0)) * 
-    (uDiffuseLightColor * diffLightDot * colTex.rgb + uSpecularLightColor * specLightParam)
-      * ulightOuterValue;  
+    (uDiffuseLightColor * diffLightDot + uSpecularLightColor * specLightParam)
+      * ulightOuterValue; 
     
   gl_FragColor = vec4(LightWeighting * uColor, 1.0);
 }`;

@@ -56,7 +56,7 @@ function initCommonUniforms(shaderProgram) {
   gl.uniform1f(gl.getUniformLocation(shaderProgram,"uAmbientCoeff"), ambientCoeff);
 
   // lights
-  gl.uniform3fv(gl.getUniformLocation(shaderProgram,"uLightPosition"),[5,10,-70]);
+  gl.uniform3fv(gl.getUniformLocation(shaderProgram,"uLightPosition"),[15,40,-60]);
   gl.uniform3fv(gl.getUniformLocation(shaderProgram,"uAmbientLightColor"),[0.1,0.1,0.1]);
   gl.uniform3fv(gl.getUniformLocation(shaderProgram,"uDiffuseLightColor"),[0.7,0.7,0.7]);
   gl.uniform3fv(gl.getUniformLocation(shaderProgram,"uSpecularLightColor"),[1.0,1.0,1.0]);
@@ -198,9 +198,9 @@ function handleTextureLoaded(image, texture) {
   } else {
     // No, it's not a power of 2. Turn off mips and set
     // wrapping to clamp to edge
+    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.CLAMP_TO_EDGE);
     gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.CLAMP_TO_EDGE);
-    gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR);
   }
 }
 
